@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 @Table(name = "USER")
 @NoArgsConstructor
 @Getter
-@Component
-@Scope("prototype")
 public class User {
 
     @Id
