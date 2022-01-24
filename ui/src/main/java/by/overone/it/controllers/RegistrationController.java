@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 public class RegistrationController {
@@ -18,14 +20,14 @@ public class RegistrationController {
     }
 
     @PostMapping(value = "/finish-registration")
-    public String checkInputData(
-            @RequestParam("firstName") String firstName,
-            @RequestParam("secondName") String secondName,
-            @RequestParam("email") String email,
-            @RequestParam("address") String address,
-            @RequestParam("telephone") String telephone,
-            @RequestParam("password") String password
-    ){
+    public String checkInputData(HttpServletRequest request) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
+        String firstName = request.getParameter("firstName");
+        String secondName = request.getParameter("secondName");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String telephone = request.getParameter("telephone");
+        String password = request.getParameter("password");
         userService.addUser(firstName, secondName, email, address, telephone, password);
         return "redirect:/login";
     }

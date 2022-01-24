@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -34,6 +35,14 @@ public class UserService {
       user.setPassword(password);
       user.setCreateDate(LocalDateTime.now());
       addUser(user);
+    }
+
+    public List<User> getUserByEmailAndPassword(String email, String password) {
+        return userDao.getUserByEmailAndPassword(email, password);
+    }
+
+    public User getUserById(String id) {
+        return userDao.getUserById(id);
     }
 
     private void addUser(User user) {

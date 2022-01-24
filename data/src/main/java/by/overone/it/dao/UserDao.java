@@ -28,12 +28,18 @@ public class UserDao {
         return id;
     }
 
-    public List<User> getUserByEmail(String email) {
+    public List<User> getUserByEmailAndPassword(String email, String password) {
         Session session = sessionFactory.getCurrentSession();
         Query<User> query = session.createQuery("" +
-                "from User where email =: paramEmail", User.class
+                "from User where email =: paramEmail and password =: paramPassword", User.class
         );
         query.setParameter("paramEmail", email);
+        query.setParameter("paramPassword", password);
         return query.list();
+    }
+
+    public User getUserById(String id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, id);
     }
 }
