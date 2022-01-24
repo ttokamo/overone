@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan(basePackages = {"by.overone.it", "by.overone.it.pojo", "by.overone.it.dao", "by.overone.it.controllers", "by.overone.it.config"})
+@ComponentScan({"by.overone.it", "by.overone.it.service"})
 @EnableWebMvc
 public class WebConfiguration {
 

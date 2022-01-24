@@ -1,9 +1,8 @@
-package by.overon.it.service;
+package by.overone.it.service;
 
 import by.overone.it.dao.UserDao;
 import by.overone.it.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
