@@ -17,6 +17,6 @@ public class RegistrationController {
 
     @GetMapping("/login")
     public String showLoginPage() {
-        return "loginPage";
+        return "login-page";
     }
 }
