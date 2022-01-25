@@ -38,6 +38,15 @@ public class UserDao {
         return query.list();
     }
 
+    public List<User> getUserByEmail(String email) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<User> query = session.createQuery("" +
+                "from User where email =: paramEmail", User.class
+        );
+        query.setParameter("paramEmail", email);
+        return query.list();
+    }
+
     public User getUserById(String id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(User.class, id);

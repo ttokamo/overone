@@ -35,8 +35,13 @@
     Имя: ${user.getFirstName()}<br>
     Фамилия: ${user.getSecondName()}<br>
     Почта: ${user.getEmail()}<br>
-    Номер телефона: ${user.getTelephone()}<br>
-    Адрес: ${user.getAddress()}<br>
+
+    <c:if test="${user.getTelephone() != null}">
+        Номер телефона: ${user.getTelephone()}<br>
+    </c:if>
+    <c:if test="${user.getAddress() != null}">
+        Адрес: ${user.getAddress()}<br>
+    </c:if>
     Дата регистрации: ${user.getCreateDate()}
 </c:if>
 <c:if test ="${thisIsExchangeRates == true}">
