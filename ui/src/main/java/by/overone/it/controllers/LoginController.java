@@ -2,6 +2,7 @@ package by.overone.it.controllers;
 
 import by.overone.it.pojo.User;
 import by.overone.it.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ import java.util.List;
 @Controller
 @SessionAttributes({"userId"})
 public class LoginController {
-
+    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
     private UserService userService;
 
     @Autowired
@@ -32,9 +33,11 @@ public class LoginController {
         List<User> userList = userService.getUserByEmailAndPassword(email, password);
 
         if (userList.isEmpty()) {
+            LOGGER.error("Ошибка ввода данных");
             model.addAttribute("exception", "Неверно введены данные");
             return "login-page";
         } else {
+            LOGGER.info("Успешный вход в аккаунт");
             String id = userList.get(0).getId();
             model.addAttribute("userId", id);
             return "redirect:/exchange-rates";
@@ -43,6 +46,7 @@ public class LoginController {
 
     @GetMapping(value = {"/", "/login"})
     public String showLoginPage() {
+        LOGGER.info("Вход на страницу авторизации");
         return "login-page";
     }
 }

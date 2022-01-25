@@ -2,6 +2,7 @@ package by.overone.it.controllers;
 
 import by.overone.it.service.UserService;
 import by.overone.it.service.ValidationService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Controller
 public class RegistrationController {
-
+    private static final Logger LOGGER = Logger.getLogger(RegistrationController.class);
     private UserService userService;
     private ValidationService validationService;
 
@@ -50,8 +51,10 @@ public class RegistrationController {
 
         if (messages.isEmpty()) {
             userService.addUser(firstName, secondName, email, address, telephone, password);
+            LOGGER.info("Успешная регистрация");
             return "redirect:/login";
         } else {
+            LOGGER.error("Ошибка ввода данных");
             request.setAttribute("exception", messages.get(0));
             return "register-page";
         }
@@ -59,6 +62,7 @@ public class RegistrationController {
 
     @GetMapping(value = "/registration")
     public String showLoginPage() {
+        LOGGER.info("Вход на страницу регистрации");
         return "register-page";
     }
 }
