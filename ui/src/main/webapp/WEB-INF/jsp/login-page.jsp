@@ -16,7 +16,7 @@
     <form action="/ui/finish-login" method="post">
         <input type="text" placeholder="Электронная почта" name="email" autofocus/><br>
         <input type="password" placeholder="Пароль" name="password"/><br>
-        <button type="submit">Регистрация</button>
+        <button type="submit">Войти</button>
     </form>
 
     Нет аккаунта ? <a href="/ui/registration"> Зарегистрируйтесь ! </a>
