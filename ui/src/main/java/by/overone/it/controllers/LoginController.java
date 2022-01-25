@@ -37,7 +37,7 @@ public class LoginController {
         } else {
             String id = userList.get(0).getId();
             model.addAttribute("userId", id);
-            return "redirect:/" + id;
+            return "redirect:/exchange-rates";
         }
     }
 

@@ -7,7 +7,7 @@
 <head>
     <%@ page contentType="text/html; charset=UTF-8" %>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Hello</title>
 </head>
 <body>
 </body>
@@ -17,9 +17,10 @@
         <input type="text" placeholder="Имя *" name="firstName" autofocus/><br>
         <input type="text" placeholder="Фамилия *" name="secondName"/><br>
         <input type="text" placeholder="Электронная почта *" name="email"/><br>
-        <input type="text" placeholder="Номер телефона" name="telephone" title="Поддерживаются только BY номера в формате +3751111111"/><br>
+        <input type="text" placeholder="Номер телефона" name="telephone" title="Поддерживаются только BY номера в формате +375331111111"/><br>
         <input type="text" placeholder="Адрес" name="address"/><br>
-        <input type="password" placeholder="Пароль *" name="password"/><br>
+        <input type="password" placeholder="Пароль *" name="password"
+        title="Пароль должен содержать, как минимум, одну цифру или одну английскую букву, нельзя вводить кирилиицу. Резрешено использовать '!@#$%^&*'"/><br>
         <input type="password" placeholder="Повторите пароль *" name="repassword"/><br>
         <button type="submit">Регистрация</button>
     </form>
